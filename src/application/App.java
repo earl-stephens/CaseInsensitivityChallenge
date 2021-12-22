@@ -27,26 +27,41 @@ public class App {
 		Scanner scanner = new Scanner(System.in);
 
 		String userInput = null;
+		/*
+		 * do { System.out.print("Enter a command: "); userInput = scanner.nextLine();
+		 * 
+		 * if (userInput.equalsIgnoreCase("start")) {
+		 * System.out.println("Machine starting..."); } else if
+		 * (userInput.equalsIgnoreCase("stop")) {
+		 * System.out.println("Machine stopping..."); } else if
+		 * (userInput.equalsIgnoreCase("quit")) { break; } else if (userInput.length()
+		 * == 0) { } else { System.out.println("Unrecognized"); } } while (true);
+		 * 
+		 * scanner.close(); System.out.println("Exiting...");
+		 */
 
 		do {
-			System.out.print("Enter a command: ");
-			userInput = scanner.nextLine();
+			System.out.println("Enter a command: ");
+			userInput = scanner.nextLine().toUpperCase();
 
-			if (userInput.equalsIgnoreCase("start")) {
+			switch (userInput) {
+			case "START":
 				System.out.println("Machine starting...");
-			} else if (userInput.equalsIgnoreCase("stop")) {
-				System.out.println("Machine stopping...");
-			} else if (userInput.equalsIgnoreCase("quit")) {
 				break;
-			} else if (userInput.length() == 0) {
-			}
-			else {
+			case "STOP":
+				System.out.println("Machine stopping...");
+				break;
+			case "":
+				break;
+			case "QUIT":
+				break;
+			default:
 				System.out.println("Unrecognized");
+				break;
 			}
-		} while (true);
-
+		} while (!userInput.equals("QUIT"));
+		
 		scanner.close();
 		System.out.println("Exiting...");
-		
 	}
 }
